@@ -33,6 +33,26 @@ void guardarCitas() {
     }
 
     fclose(archivo);
+    // Función para cargar las citas desde un archivo de texto
+void cargarCitas() {
+    FILE *archivo;
+    archivo = fopen("citas.txt", "r");
+
+    if (archivo == NULL) {
+        printf("No se encontró el archivo de citas.\n");
+        return;
+    }
+
+    while (!feof(archivo)) {
+        fscanf(archivo, "%[^;];%[^;];%d;%[^;];%[^;];%d\n", citas[numCitas].nombre,
+               citas[numCitas].apellido, &citas[numCitas].cedula, citas[numCitas].fecha,
+               citas[numCitas].especialidad, &citas[numCitas].hora);
+        numCitas++;
+    }
+
+    fclose(archivo);
+}
+
 }
 int main() {
     cargarCitas();
@@ -62,5 +82,5 @@ int main() {
         }
     } while (opcion != 3);
 
-    return 0;
+    return 0;
 }
