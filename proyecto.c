@@ -33,6 +33,8 @@ void guardarCitas() {
     }
 
     fclose(archivo);
+}
+
     // Función para cargar las citas desde un archivo de texto
 void cargarCitas() {
     FILE *archivo;
@@ -130,6 +132,6 @@ int main() {
                 break;
         }
     } while (opcion != 3);
-
-    return 0;
+    
+    return 0;
 }
