@@ -52,6 +52,55 @@ void cargarCitas() {
 
     fclose(archivo);
 }
+// Función para agregar una nueva cita
+void agregarCita() {
+    if (numCitas >= MAX_CITAS) {
+        printf("Se ha alcanzado el límite de citas.\n");
+        return;
+    }
+
+    Cita nuevaCita;
+    printf("Ingrese los datos de la cita:\n");
+    printf("Nombre: ");
+    scanf("%s", nuevaCita.nombre);
+    printf("Apellido: ");
+    scanf("%s", nuevaCita.apellido);
+    printf("Cedula: ");
+    scanf("%d", &nuevaCita.cedula);
+    printf("Fecha (dd/mm/aaaa): ");
+    scanf("%s", nuevaCita.fecha);
+
+    // Selección de especialidad
+    int opcionEspecialidad;
+    printf("Especialidad:\n");
+    printf("1. Pediatría\n");
+    printf("2. Odontología\n");
+    printf("3. Medicina-Interna\n");
+    printf("4. Dermatología\n");
+    printf("Seleccione una opción: ");
+    scanf("%d", &opcionEspecialidad);
+
+    switch (opcionEspecialidad) {
+        case 1:
+            strcpy(nuevaCita.especialidad, "Pediatría");
+            break;
+        case 2:
+            strcpy(nuevaCita.especialidad, "Odontología");
+            break;
+        case 3:
+            strcpy(nuevaCita.especialidad, "Medicina-Interna");
+            break;
+        case 4:
+            strcpy(nuevaCita.especialidad, "Dermatología");
+            break;
+        default:
+            printf("Opción inválida. No se asignará una especialidad.\n");
+            nuevaCita.especialidad[0] = '\0';
+            break;
+    }
+
+    printf("Hora (9-12, 14-17): ");
+    scanf("%d", &nuevaCita.hora);
 
 }
 int main() {
