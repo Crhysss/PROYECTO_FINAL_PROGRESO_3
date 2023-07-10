@@ -28,9 +28,10 @@ void guardarCitas() {
         printf("Error al abrir el archivo para escritura.\n");
         return;  // Retorna sin realizar ninguna acción adicional
     }
-
+    fprintf(archivo,"Nombre  Apellido  Cédula  Fecha de cita  Especialidad  Hora\n");
     for (int i = 0; i < numCitas; i++) {
-        fprintf(archivo, "%s;%s;%d;%s;%s;%d\n", citas[i].nombre, citas[i].apellido, citas[i].cedula,
+        
+        fprintf(archivo, "%s ; %s ; %d ; %s ; %s ; %d\n", citas[i].nombre, citas[i].apellido, citas[i].cedula,
                 citas[i].fecha, citas[i].especialidad, citas[i].hora);
     }
 
@@ -48,11 +49,12 @@ void cargarCitas() {
     }
 
     while (!feof(archivo)) {
-        fscanf(archivo, "%[^;];%[^;];%d;%[^;];%[^;];%d\n", citas[numCitas].nombre,
-               citas[numCitas].apellido, &citas[numCitas].cedula, citas[numCitas].fecha,
-               citas[numCitas].especialidad, &citas[numCitas].hora);
-        numCitas++;
-    }
+    fscanf(archivo, "%[^;];  %[^;];  %d;  %[^;];  %[^;];  %d\n", citas[numCitas].nombre,
+           citas[numCitas].apellido, &citas[numCitas].cedula, citas[numCitas].fecha,
+           citas[numCitas].especialidad, &citas[numCitas].hora);
+    numCitas++;
+}
+
 
     fclose(archivo);
 }
@@ -133,7 +135,7 @@ void mostrarCitas() {
     printf("Citas agendadas:\n");
     printf("------------------------------\n");
     for (int i = 0; i < numCitas; i++) {
-        printf("Nombre: %s %s\n", citas[i].nombre, citas[i].apellido);
+        printf("Nombre: %s %s", citas[i].nombre, citas[i].apellido);
         printf("Cedula: %d\n", citas[i].cedula);
         printf("Fecha: %s\n", citas[i].fecha);
         printf("Especialidad: %s\n", citas[i].especialidad);
