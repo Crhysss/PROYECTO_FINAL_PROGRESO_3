@@ -6,6 +6,7 @@
 #define MAX_NOMBRE 50
 #define MAX_FECHA 11
 
+// Estructura que representa una cita médica
 typedef struct {
     char nombre[MAX_NOMBRE];
     char apellido[MAX_NOMBRE];
@@ -15,8 +16,8 @@ typedef struct {
     int hora;
 } Cita;
 
-Cita citas[MAX_CITAS];
-int numCitas = 0;
+Cita citas[MAX_CITAS];  // Arreglo de estructuras Cita para almacenar las citas
+int numCitas = 0;  // Variable para mantener el conteo del número de citas
 
 // Función para guardar las citas en un archivo de texto
 void guardarCitas() {
