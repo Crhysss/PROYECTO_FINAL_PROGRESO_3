@@ -26,17 +26,19 @@ void guardarCitas() {
 
     if (archivo == NULL) {
         printf("Error al abrir el archivo para escritura.\n");
-        return;  // Retorna sin realizar ninguna acción adicional
+        return;
     }
-    fprintf(archivo,"Nombre  Apellido  Cédula  Fecha de cita  Especialidad  Hora\n");
+    
+    fprintf(archivo, "%-12s  %-13s  %-15s  %-19s  %-6s\n", "Nombre", "Apellido", "Cedula", "Fecha de cita", "Hora");
+    
     for (int i = 0; i < numCitas; i++) {
-        
-        fprintf(archivo, "%s ; %s ; %d ; %s ; %s ; %d\n", citas[i].nombre, citas[i].apellido, citas[i].cedula,
-                citas[i].fecha, citas[i].especialidad, citas[i].hora);
+        fprintf(archivo, "%-10s  ;  %-10s  ;  %-10d  ;  %-14s  ;  %-6d\n", citas[i].nombre, citas[i].apellido, citas[i].cedula,
+                citas[i].fecha, citas[i].hora);
     }
 
     fclose(archivo);
 }
+
 
 // Función para cargar las citas desde un archivo de texto
 void cargarCitas() {
