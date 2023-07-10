@@ -17,6 +17,7 @@ typedef struct {
 
 Cita citas[MAX_CITAS];
 int numCitas = 0;
+
 // Función para guardar las citas en un archivo de texto
 void guardarCitas() {
     FILE *archivo;
@@ -35,7 +36,7 @@ void guardarCitas() {
     fclose(archivo);
 }
 
-    // Función para cargar las citas desde un archivo de texto
+// Función para cargar las citas desde un archivo de texto
 void cargarCitas() {
     FILE *archivo;
     archivo = fopen("citas.txt", "r");
@@ -54,6 +55,7 @@ void cargarCitas() {
 
     fclose(archivo);
 }
+
 // Función para agregar una nueva cita
 void agregarCita() {
     if (numCitas >= MAX_CITAS) {
@@ -104,7 +106,41 @@ void agregarCita() {
     printf("Hora (9-12, 14-17): ");
     scanf("%d", &nuevaCita.hora);
 
+    // Validar si la cita ya está agendada para esa fecha, especialidad y hora
+    for (int i = 0; i < numCitas; i++) {
+        if (strcmp(nuevaCita.fecha, citas[i].fecha) == 0 &&
+            strcmp(nuevaCita.especialidad, citas[i].especialidad) == 0 &&
+            nuevaCita.hora == citas[i].hora) {
+            printf("Ya hay una cita agendada para esa fecha, especialidad y hora.\n");
+            return;
+        }
+    }
+
+    citas[numCitas++] = nuevaCita;
+    guardarCitas();
+
+    printf("La cita se ha agendado exitosamente.\n");
 }
+
+// Función para mostrar todas las citas agendadas
+void mostrarCitas() {
+    if (numCitas == 0) {
+        printf("No hay citas agendadas.\n");
+        return;
+    }
+
+    printf("Citas agendadas:\n");
+    printf("------------------------------\n");
+    for (int i = 0; i < numCitas; i++) {
+        printf("Nombre: %s %s\n", citas[i].nombre, citas[i].apellido);
+        printf("Cedula: %d\n", citas[i].cedula);
+        printf("Fecha: %s\n", citas[i].fecha);
+        printf("Especialidad: %s\n", citas[i].especialidad);
+        printf("Hora: %d\n", citas[i].hora);
+        printf("------------------------------\n");
+    }
+}
+
 int main() {
     cargarCitas();
 
@@ -132,6 +168,6 @@ int main() {
                 break;
         }
     } while (opcion != 3);
-    
+
     return 0;
 }
