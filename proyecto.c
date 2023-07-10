@@ -26,7 +26,7 @@ void guardarCitas() {
 
     if (archivo == NULL) {
         printf("Error al abrir el archivo para escritura.\n");
-        return;
+        return;  // Retorna sin realizar ninguna acción adicional
     }
 
     for (int i = 0; i < numCitas; i++) {
@@ -44,7 +44,7 @@ void cargarCitas() {
 
     if (archivo == NULL) {
         printf("No se encontró el archivo de citas.\n");
-        return;
+        return;  // Retorna sin realizar ninguna acción adicional
     }
 
     while (!feof(archivo)) {
@@ -61,7 +61,7 @@ void cargarCitas() {
 void agregarCita() {
     if (numCitas >= MAX_CITAS) {
         printf("Se ha alcanzado el límite de citas.\n");
-        return;
+        return;  // Retorna sin realizar ninguna acción adicional
     }
 
     Cita nuevaCita;
@@ -113,7 +113,7 @@ void agregarCita() {
             strcmp(nuevaCita.especialidad, citas[i].especialidad) == 0 &&
             nuevaCita.hora == citas[i].hora) {
             printf("Ya hay una cita agendada para esa fecha, especialidad y hora.\n");
-            return;
+            return;  // Retorna sin realizar ninguna acción adicional
         }
     }
 
@@ -127,7 +127,7 @@ void agregarCita() {
 void mostrarCitas() {
     if (numCitas == 0) {
         printf("No hay citas agendadas.\n");
-        return;
+        return;  // Retorna sin realizar ninguna acción adicional
     }
 
     printf("Citas agendadas:\n");
@@ -152,23 +152,23 @@ int main() {
         printf("2. Mostrar citas\n");
         printf("3. Salir\n");
         printf("Seleccione una opción: ");
-        scanf("%d", &opcion);
+    scanf("%d", &opcion);
 
-        switch (opcion) {
-            case 1:
-                agregarCita();
-                break;
-            case 2:
-                mostrarCitas();
-                break;
-            case 3:
-                printf("Saliendo del programa.\n");
-                break;
-            default:
-                printf("Opción inválida. Intente nuevamente.\n");
-                break;
-        }
-    } while (opcion != 3);
+    switch (opcion) {
+        case 1:
+            agregarCita();
+            break;
+        case 2:
+            mostrarCitas();
+            break;
+        case 3:
+            printf("Saliendo del programa.\n");
+            break;
+        default:
+            printf("Opción inválida. Intente nuevamente.\n");
+            break;
+    }
+} while (opcion != 3);
 
-    return 0;
+return 0;
 }
