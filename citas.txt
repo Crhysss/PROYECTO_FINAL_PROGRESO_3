@@ -1,0 +1,4 @@
+Nombre  Apellido  Cédula  Fecha de cita  Especialidad  Hora
+Crhystel ; Velasco ; 123456 ; 23/04/2023 ; Pediatria ; 12
+Soledad ; Cabrera ; 122344556 ; 25/06/2023 ; Odontologia ; 9
+Matias ; Calle ; 122976643 ; 14/06/2023 ; Medicina-Interna ; 16
