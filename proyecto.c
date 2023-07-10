@@ -29,7 +29,7 @@ void guardarCitas() {
         return;
     }
     
-    fprintf(archivo, "%-12s  %-13s  %-15s  %-19s  %-6s\n", "Nombre", "Apellido", "Cedula", "Fecha de cita", "Hora");
+    fprintf(archivo, "%-12s  %-13s  %-14s  %-16s  %-2s\n", "Nombre", "Apellido", "Cedula", "Fecha de cita", "Hora");
     
     for (int i = 0; i < numCitas; i++) {
         fprintf(archivo, "%-10s  ;  %-10s  ;  %-10d  ;  %-14s  ;  %-6d\n", citas[i].nombre, citas[i].apellido, citas[i].cedula,
