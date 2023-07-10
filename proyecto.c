@@ -43,7 +43,7 @@ void cargarCitas() {
     archivo = fopen("citas.txt", "r");
 
     if (archivo == NULL) {
-        printf("No se encontró el archivo de citas.\n");
+        printf("No se encontro el archivo de citas.\n");
         return;  // Retorna sin realizar ninguna acción adicional
     }
 
@@ -60,7 +60,7 @@ void cargarCitas() {
 // Función para agregar una nueva cita
 void agregarCita() {
     if (numCitas >= MAX_CITAS) {
-        printf("Se ha alcanzado el límite de citas.\n");
+        printf("Se ha alcanzado el limite de citas.\n");
         return;  // Retorna sin realizar ninguna acción adicional
     }
 
@@ -78,28 +78,28 @@ void agregarCita() {
     // Selección de especialidad
     int opcionEspecialidad;
     printf("Especialidad:\n");
-    printf("1. Pediatría\n");
-    printf("2. Odontología\n");
+    printf("1. Pediatria\n");
+    printf("2. Odontologia\n");
     printf("3. Medicina-Interna\n");
-    printf("4. Dermatología\n");
-    printf("Seleccione una opción: ");
+    printf("4. Dermatologia\n");
+    printf("Seleccione una opcion: ");
     scanf("%d", &opcionEspecialidad);
 
     switch (opcionEspecialidad) {
         case 1:
-            strcpy(nuevaCita.especialidad, "Pediatría");
+            strcpy(nuevaCita.especialidad, "Pediatria");
             break;
         case 2:
-            strcpy(nuevaCita.especialidad, "Odontología");
+            strcpy(nuevaCita.especialidad, "Odontologia");
             break;
         case 3:
             strcpy(nuevaCita.especialidad, "Medicina-Interna");
             break;
         case 4:
-            strcpy(nuevaCita.especialidad, "Dermatología");
+            strcpy(nuevaCita.especialidad, "Dermatologia");
             break;
         default:
-            printf("Opción inválida. No se asignará una especialidad.\n");
+            printf("Opción invalida. No se asignara una especialidad.\n");
             nuevaCita.especialidad[0] = '\0';
             break;
     }
@@ -151,7 +151,7 @@ int main() {
         printf("1. Agregar cita\n");
         printf("2. Mostrar citas\n");
         printf("3. Salir\n");
-        printf("Seleccione una opción: ");
+        printf("Seleccione una opcion: ");
     scanf("%d", &opcion);
 
     switch (opcion) {
@@ -165,7 +165,7 @@ int main() {
             printf("Saliendo del programa.\n");
             break;
         default:
-            printf("Opción inválida. Intente nuevamente.\n");
+            printf("Opcion invalida. Intente nuevamente.\n");
             break;
     }
 } while (opcion != 3);
