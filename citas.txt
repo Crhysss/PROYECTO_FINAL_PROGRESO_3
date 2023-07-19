@@ -1,4 +1,0 @@
-Nombre        Apellido       Cedula          Fecha de cita     Hora
-Crhystel    ;  Velasco     ;  2147483647  ;  23/04/2023      ;  12    
-Soledad     ;  Cabrera     ;  34643222    ;  27/05/2023      ;  9     
-Matias      ;  Calle       ;  86645443    ;  13/03/2023      ;  16    
